@@ -7,251 +7,48 @@
 	<body>
 		
 		<script>
-			// console.log("Массивы. Задачи на методы");
+			console.log("Дата и время");
 
 
 
-			// console.log("1. Функция с продуктами (11я задача)");
 
-			// var products = [
-			// 	{title: 'prod1', price: 5.2}, 
-			// 	{title: 'prod2', price: 0.18},
-			// 	{title: 'prod3', price: 15}, 
-			// 	{title: 'prod4', price: 25},
-			// 	{title: 'prod5', price: 18.9}, 
-			// 	{title: 'prod6', price: 8},
-			// 	{title: 'prod7', price: 19}, 
-			// 	{title: 'prod8', price: 63}
-			// ],
-			// 	minPrice = 2,
-			// 	maxPrice = 25,
-			// 	sortProd = [];
+			console.log("1. Написать функцию, которая принимает год, а возвращает день 1го января. Формат ру");
 
-			// // sortProd = products.filter(function (prod, i, arr) {
-			// // 	return prod.price >= minPrice && prod.price <= maxPrice;
-			// // });
-			// // console.log(sortProd);  простой функцией.
+			var anyYear = fistJanDay(2012),
+				options = {
+					weekday: 'long'
+				};
 
-			// // стрелкой
-			// sortProd = products.filter( prod => prod.price >= minPrice && prod.price <= maxPrice );
-			// console.log(sortProd);
-
-			// var result = sortProd.sort( (prev, next) => prev.price - next.price );
-			// console.log(result);
+			function fistJanDay(year) {
+				return new Date(year, 0, 1);
+			}
 			
-
-
-			// console.log("2. На основе массива сформировать новый, каждый элемент которого будет хранить инфу о числе и четности");
-
-			// var nums = [1,2,3,4,5,6,7,8,9,10];
-
-			// var resultNums = nums.map(function (num) {
-			// 	return {digit: num, 
-			// 			odd: Boolean(num % 2)};
-			// });
-
-			// console.log(nums);
-			// console.log(resultNums);
+			console.log(anyYear.toLocaleString('ru', options));
 
 
 
-			// console.log("3. Проверить, содержит ли массив элементы, равные нулю. Если да - вернуть FALSE");
 
-			// var nums = [12,4,50,1,0,18,40],
-			// 	lim = 0;
+			console.log("2. Написать функцию, которая принимает дату в виде строки, возвращает день в русском формате");
 
-			// var res = nums.some( num => num === lim );
-			// console.log(nums);
-			// console.log(!res);
+			var anyYear = "29.03.1985",
+				options = {
+					weekday: 'long'
+				};
 
-			// var res_1 = nums.every( num => num !== lim );
-			// console.log(res_1);
-
-
-			// console.log("4.Проверить, содержит ли массив хотя бы одно слово больше 3х букв. Если да - вернуть TRUE");
-
-			// var arr = ['yes', 'hello', 'no', 'easycode', 'what'],
-			// 	lim = 3;
-
-			// var res = arr.some( str => str.length >= lim );
-			// console.log(arr);
-			// console.log(res);
+			function strToDate(year) {
+				var strToArr = [],
+					date;
+				strToArr = year.split(".").reverse().join(".");
+				console.log(strToArr);
+				date = new Date( Date.parse(strToArr));
+				return date.toLocaleString('ru',  options);
+			}
+			var weekdayOfDay = strToDate(anyYear);
+			console.log(weekdayOfDay);
+			
+			console.log("3. Сколько прошло полных недель с начала года?");
 
 			
-
-			// console.log("5.Написать ф-цию, которая соберет");
-
-			// var arr = [
-			// 	{char:"a",index:12}, 
-			// 	{char:"w",index:8}, 
-			// 	{char:"Y",index:10}, 
-			// 	{char:"p",index:3}, 
-			// 	{char:"p",index:2},
-			// 	{char:"N",index:6}, 
-			// 	{char:" ",index:5}, 
-			// 	{char:"y",index:4}, 
-			// 	{char:"r",index:13}, 
-			// 	{char:"H",index:0},
-			// 	{char:"e",index:11}, 
-			// 	{char:"a",index:1}, 
-			// 	{char:" ",index:9}, 
-			// 	{char:"!",index:14}, 
-			// 	{char:"e",index:7}
-			// ],
-			// 	sortInd = [],
-			// 	resultArr = [];
-
-			// sortInd = arr.sort( (prev, next) => prev.index - next.index );
-			// console.log(sortInd);
-
-			// resultArr = sortInd.reduce(function (sumStr, curent) {
-			// 	sumStr += curent.char;
-			// 	return sumStr;
-			// }, '');
-			// console.log(resultArr);
-			
-
-			// var arr_1 = [
-			// 	{char:"a",index:12}, 
-			// 	{char:"w",index:8}, 
-			// 	{char:"Y",index:10}, 
-			// 	{char:"p",index:3}, 
-			// 	{char:"p",index:2},
-			// 	{char:"N",index:6}, 
-			// 	{char:" ",index:5}, 
-			// 	{char:"y",index:4}, 
-			// 	{char:"r",index:13}, 
-			// 	{char:"H",index:0},
-			// 	{char:"e",index:11}, 
-			// 	{char:"a",index:1}, 
-			// 	{char:" ",index:9}, 
-			// 	{char:"!",index:14}, 
-			// 	{char:"e",index:7}
-			// ];
-
-			
-			// for (i = 0; i <= arr_1.length; i++) {
-			// 	if (arr_1[i-1].index < arr_1[i].index) {
-			// 		arr_1.char
-			// 	}
-				
-			// }
-
-
-
-			// 1. Создать функцию, которая принимает объект и строку.Функция
-// должна проверить, содержится ли в объекте свойство, переданное
-//вторым аргументом.Например:
-//checkProp({ age: 9 }, ‘age’) → true
-//checkProp({ price: 9 }, ‘age’) → false
-
-// var str = 'age',
-//     obj = {
-//         age: 9
-//     };
-// function checkProp (obj, str) {
-// 	for (var prop in obj) {
-// 		if ( prop === str) return true;
-// 	}
-// 	return false;
-// }
-
-// var res = checkProp(obj, str);
-// console.log(res);
-
-// //2. Создать функцию, которая принимает объект и возвращает массив
-// //его ключей: getObjectKeys({ name: ’Aaron’, age: 14}) →[‘name’, ‘age’]
-
-// var obj = { name: 'Aaron',
-// 			age: 14
-// };
-	
-
-// function getObjectKeys(objs) {
-// 	var resArr = [];
-// 	for (key in obj) {
-// 		resArr.push(key);
-// 	}
-// 	return resArr;
-// }
-// var res = getObjectKeys(obj);
-// console.log(res);
-
-
-// //3. Создать функцию, которая принимает объект и возвращает
-// //количество его ключей: getObjectLength({ name: ’Aaron’, age: 14}) → 2
-
-// var obj = { name: 'Aaron',
-// 			age: 14
-// };
-// function getObjectLength(obj) {
-// 	var count = 0;
-// 	for (key in obj) count ++;
-// 	return count;
-// }
-
-// var res = getObjectLength(obj);
-
-// console.log(res);
-
-
-
-
-// //4. Создать функцию замена метода evry
-
-// // var arr = ['one', 2, 'three', 'four', 5];
-
-// // function exEvery(arr, cond) {
-
-// // 	for (i = 0; i <= arr.length; i++) {
-// // 		if arr[i] == 
-// // 	}
-
-// // }
-
-// // every(function(element) {
-
-// // return typeof element === 'string';
-
-// // });
-
-// //5. Создать функцию замена метода some
-// var arr = [1,2,3];
-// var newArr = evryCustom(arr, function (el) {
-//    return typeof el === 'number';
-// });
-
-// var everyEx = function (el) {
-// 	var element;
-// 	for (i = 0; i <= arr.length; i++) {
-// 		element = arr[i];
-// 	}
-// 	return element;
-// }
-
-
-
-// var arr = ['one', 2, 'three', 'four', 5];
-
-// function exEvery(arr, cond) {
-
-// 	for (i = 0; i <= arr.length; i++) {
-// 		if arr[i] == 
-// 	}
-
-// }
-
-var date = new Date(2016, 03, 2, 3);
-var date2 = new Date('2016-03-12');
-
-
-var userInfo = {
-	username: 'dmgame',
-	postCreated: 1459555200000,
-	message: 'Hello my bro'
-}
-
-userInfo['date'] = new Date(userInfo['postCreated']);
 
 </script>
 </body>
