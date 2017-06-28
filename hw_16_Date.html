@@ -38,9 +38,11 @@
 			function strToDate(year) {
 				var strToArr = [],
 					date;
-				strToArr = year.split(".").reverse().join(".");
+				strToArr = year.split(".")
+								.reverse()
+								.join(".");
 				console.log(strToArr);
-				date = new Date( Date.parse(strToArr));
+				date = new Date(Date.parse(strToArr));
 				return date.toLocaleString('ru',  options);
 			}
 			var weekdayOfDay = strToDate(anyYear);
